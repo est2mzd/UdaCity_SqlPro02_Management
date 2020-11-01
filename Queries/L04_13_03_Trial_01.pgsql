@@ -75,6 +75,8 @@ SELECT * FROM states LIMIT 5;
 /* Add Column state_id to user_data */
 ALTER TABLE user_data ADD state_id SMALLINT;
 
+SELECT * FROM user_data LIMIT 5;
+
 /* Set id */
 UPDATE user_data SET state_id = (
     SELECT states.id
