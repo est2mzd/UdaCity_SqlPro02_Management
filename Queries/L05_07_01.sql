@@ -34,3 +34,11 @@ INSERT INTO users (username) VALUES
 INSERT INTO comments (user_id, content) VALUES
     (100, 'comment text'),
     (-5 , 'other comment text...');
+
+
+/* Create Table with Foreign Key*/    
+CREATE TABLE comment_likes (
+    user_id INTEGER REFERENCES users (id),
+    comment_id INTEGER,
+    FOREIGN KEY (comment_id) REFERENCES comments (id)
+);
