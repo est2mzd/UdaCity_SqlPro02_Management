@@ -55,16 +55,20 @@ SELECT * FROM user_data LIMIT 5;
 
 /*---------------- Question - 3-A & 3-B ----------------------*/
 /* Create State Table */
-CREATE TABLE "state"(
+CREATE TABLE "states"(
     "id" SMALLSERIAL,
     "state" CHAR(2)
 );
 
-/* Set DATA */
+/* Check DATA */
 SELECT DISTINCT state 
 From user_data;
 
-INSERT INTO s
+/* Set DATA */
+INSERT INTO states (state)
+    SELECT DISTINCT state FROM user_data;
+
+SELECT * FROM states LIMIT 5;
 
 
 
