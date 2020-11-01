@@ -43,3 +43,12 @@ CREATE TABLE users(
     "username" VARCHAR,
     CONSTRAINT "unique_usernames" UNIQUE("username")
 );
+
+
+/* Create Table with Constraints to multiple columns*/
+CREATE TABLE leaderboards(
+    game_id INTEGER,
+    player_id INTEGER,
+    rank SMALLINT,
+    UNIQUE(game_id, rank)
+);
