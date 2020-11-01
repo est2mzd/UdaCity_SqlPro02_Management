@@ -31,3 +31,23 @@ CREATE TABLE users (
     username VARCHAR UNIQUE NOT NULL
 );
 
+
+/* Create Table with PRIMARY KEY*/
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR UNIQUE NOT NULL
+);
+
+CREATE TABLE users (
+    id SERIAL,
+    username VARCHAR(20),
+    PRIMARY KEY (id),
+    UNIQUE (username)
+);
+
+CREATE TABLE users (
+    id SERIAL,
+    username VARCHAR(20),
+    CONSTRAINT "users_pk" PRIMARY KEY (id),
+    CONSTRAINT "unique_usernames" UNIQUE (username)
+);
