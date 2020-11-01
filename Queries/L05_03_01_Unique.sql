@@ -27,3 +27,19 @@ ALTER TABLE users DROP CONSTRAINT "users_username_key";
 
 /* Add a constraint wiht Tag */
 ALTER TABLE users ADD CONSTRAINT "unique_user_name" UNIQUE (username);
+
+/* Create Table with Constraints */
+
+/* 1 */
+CREATE TABLE users(
+    "id" SERIAL,
+    "username" VARCHAR,
+    UNIQUE("username")
+);
+
+/* 2 */
+CREATE TABLE users(
+    "id" SERIAL,
+    "username" VARCHAR,
+    CONSTRAINT "unique_usernames" UNIQUE("username")
+);
