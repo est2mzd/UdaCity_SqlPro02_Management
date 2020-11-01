@@ -22,5 +22,12 @@ INSERT INTO users (username) VALUES
     (NULL),
     (NULL);
 
-SELECT * FROM users;    
+SELECT * FROM users;   
+
+
+/* Create Table with Not Null*/
+CREATE TABLE users (
+    id SERIAL,
+    username VARCHAR UNIQUE NOT NULL
+);
 
