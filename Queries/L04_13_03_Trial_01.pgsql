@@ -43,11 +43,28 @@ UPDATE user_data SET
     first_name = SPLIT_PART(name, ' ', 1),
     last_name  = SPLIT_PART(name, ' ', 2);
 
+/* This Script becomes Error */
+INSERT INTO user_data ("first_name", "last_name")
+    SELECT SPLIT_PART(name, ' ', 1),
+           SPLIT_PART(name, ' ', 2)
+    FROM user_data;
+
+
 SELECT * FROM user_data LIMIT 5;
 
 
+/*---------------- Question - 3-A & 3-B ----------------------*/
+/* Create State Table */
+CREATE TABLE "state"(
+    "id" SMALLSERIAL,
+    "state" CHAR(2)
+);
 
+/* Set DATA */
+SELECT DISTINCT state 
+From user_data;
 
+INSERT INTO s
 
 
 
