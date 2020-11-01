@@ -90,11 +90,5 @@ UPDATE user_data SET state_id = (
 ALTER TABLE user_data DROP COLUMN state;
 
 
-
-
-
-
-
-
 /* End Transaction */
 COMMIT;    
