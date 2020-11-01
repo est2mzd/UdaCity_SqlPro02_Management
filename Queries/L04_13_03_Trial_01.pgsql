@@ -43,6 +43,7 @@ UPDATE user_data SET
     first_name = SPLIT_PART(name, ' ', 1),
     last_name  = SPLIT_PART(name, ' ', 2);
 
+SELECT * FROM user_data LIMIT 5;
 
 
 
