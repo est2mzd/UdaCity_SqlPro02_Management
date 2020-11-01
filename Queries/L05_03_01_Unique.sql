@@ -21,3 +21,9 @@ INSERT INTO users (username) VALUES ('user2');
 
 /* Set Data <2> ==> Error */
 UPDATE users SET username='user1' WHERE id = 2;
+
+/* Remove the constraint */
+ALTER TABLE users DROP CONSTRAINT "users_username_key";
+
+/* Add a constraint wiht Tag */
+ALTER TABLE users ADD CONSTRAINT "unique_user_name" UNIQUE (username);
