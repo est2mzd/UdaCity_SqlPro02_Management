@@ -71,6 +71,21 @@ INSERT INTO states (state)
 SELECT * FROM states LIMIT 5;
 
 
+/*---------------- Question - 3-C & 3-D ----------------------*/
+/* Add Column state_id to user_data */
+ALTER TABLE user_data ADD state_id SMALLINT;
+
+/* Set id */
+UPDATE user_data SET state_id = (
+    SELECT states.id
+    FROM states
+    WHERE states.state = user_data.state
+);
+
+
+/*---------------- Question - 3-E ----------------------*/
+/* Delete unnecessary column */
+ALTER TABLE user_data DROP COLUMN state;
 
 
 
