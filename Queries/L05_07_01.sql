@@ -23,6 +23,9 @@ ALTER TABLE comments
 ALTER TABLE comment_likes
     ADD FOREIGN KEY (user_id) REFERENCES users;
 
+ALTER TABLE comment_likes
+    ADD FOREIGN KEY (comment_id) REFERENCES comments;
+
 /* Set Data 1 */
 INSERT INTO users (username) VALUES 
     ('user1'), 
