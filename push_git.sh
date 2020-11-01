@@ -6,6 +6,7 @@ else
 fi
 
 git add *.sql
+git add *.pgsql
 git add -u
 git commit -m "$comments"
 git push -u origin master
