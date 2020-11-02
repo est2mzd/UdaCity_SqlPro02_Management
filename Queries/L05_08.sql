@@ -30,3 +30,6 @@ INSERT INTO comments_2 (user_id, content) VALUES
 /* DELETE Rows */
 DELETE FROM users_2
     WHERE id = 1;
+
+ERROR:  update or delete on table "users_2" violates foreign key constraint "comments_2_user_id_fkey" on table "comments_2"
+DETAIL:  Key (id)=(1) is still referenced from table "comments_2".
