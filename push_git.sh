@@ -5,6 +5,7 @@ else
    comments="$1"
 fi
 
+git status
 git add *.sql
 git add *.pgsql
 git add -u
