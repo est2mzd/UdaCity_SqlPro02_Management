@@ -55,3 +55,24 @@ INSERT INTO comments_2 (user_id, content) VALUES
 /* DELETE Rows 2 */
 DELETE FROM users_2
     WHERE id = 1;    
+
+
+/* ------------- Retry 2 ---------------- */
+/* Preparation */
+DROP TABLE comments_2;
+
+/* Create Table 3 */
+CREATE TABLE comments_2(
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users_2 (id) ON DELETE SET NULL,
+    content TEXT
+);
+
+/* Set Data 3 */
+INSERT INTO comments_2 (user_id, content) VALUES
+    (2, 'lorem ipsum'),
+    (3, 'another comment');
+
+/* DELETE Rows 2 */
+DELETE FROM users_2
+    WHERE id = 2;      
