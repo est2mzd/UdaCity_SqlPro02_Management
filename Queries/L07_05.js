@@ -103,6 +103,3 @@ WHERE election.year > 1792;
 db.presidents.find({
     elections: {$gt: 1792}
 })
-
-
-
