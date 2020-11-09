@@ -56,7 +56,7 @@ db.comments.find(
     { postId: 555}
 ).sort(
     { postedAt: -1} // 1 for ascending
-).limit(10)
+).limit(2).pretty()
 
 
 //----------------------------------------------------------------//
