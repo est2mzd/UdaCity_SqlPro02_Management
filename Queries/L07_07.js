@@ -29,6 +29,7 @@ db.comments.insertMany([
 ])
 
 
+//----------------------------------------------------------------//
 // Find all comments from users who are verified
 // SQL
 SELECT comments.*
@@ -42,7 +43,7 @@ db.comments.find({
 })
 
 
-
+//----------------------------------------------------------------//
 // Find the first 10 comments for a given post id, sorted in reverse chronological order
 // SQL
 SELECT * FROM comments
@@ -56,3 +57,30 @@ db.comments.find(
 ).sort(
     { postedAt: -1} // 1 for ascending
 ).limit(10)
+
+
+//----------------------------------------------------------------//
+// Find the total # of likes/dislikes for a given comment
+// SQL
+SELECT
+    COUNT(DISTINCT comment_likes.author_id) AS totalLikes,
+    COUNT(DISTINCT comment_dislikes.author_id) AS totalDislikes
+FROM
+    LEFT JOIN comment_likes ON comments.id = comment_likes.comment_id
+    LEFT JOIN comment_dislikes ON comments.id = comment_dislikes.comment_id
+WHERE
+    comment.id = '060d2680-daaa-442e-9f71-306828f273ce'
+
+// MongoDB - 1
+db.comments.find(
+    { _id: '060d2680-daaa-442e-9f71-306828f273ce' },
+    { _id:0, totalLikes: 1, totalDislikes: 1}
+)
+
+// MongoDB - 2
+db.commentLikes.countDocuments({
+    commentId: '060d2680-daaa-442e-9f71-306828f273ce'
+})
+db.commentLikes.countDocuments({
+    commentId: '060d2680-daaa-442e-9f71-306828f273ce'
+})
