@@ -100,3 +100,37 @@ db.comments.updateOne(
     {_id: '060d2680-daaa-442e-9f71-306828f273ce'},
     { $inc: {totalLikes: 1}}
 )
+
+//----------------------------------------------------------------//
+// Delete one comment by its ID
+// SQL
+DELETE FROM comments WHERE id = '060d2680-daaa-442e-9f71-306828f273FF';
+
+// MongoDB
+db.comments.deleteOne({_id:'060d2680-daaa-442e-9f71-306828f273FF'})
+
+
+//----------------------------------------------------------------//
+// Delete All comment authorId
+// SQL
+DELETE FROM comments WHERE authorId = 42;
+
+// MongoDB
+db.comments.deleteMany({ authorId: 42})
+
+
+//----------------------------------------------------------------//
+// Reset All comment
+// SQL
+START TRANSACION;
+TRUNCATE TABLE comment_likes;
+TRUNCATE TABLE comment_dislikes;
+COMMIT;
+
+// MongoDB
+db.commentLikes.deleteMany({})
+db.commentDislikes.deleteMany({})
+db.comments.updateMany(
+    {},
+    {$set: {totalLikes:0, totalDislikes:0 }}
+)
