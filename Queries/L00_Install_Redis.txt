@@ -10,3 +10,26 @@ $ redis-server
 
 Check if Redis is working
 $ redis-cli ping
+
+----------------------------------------------------------------------------------
+https://qiita.com/wind-up-bird/items/f2d41d08e86789322c71
+
+Redis のインストールと起動確認
+以下のコマンドで redis-server をインストールします。
+$ sudo apt update
+$ sudo apt install redis-server
+$ redis-server --version
+
+インストールが完了したら、 redis-server が起動していることを確認します。
+$ sudo systemctl status redis-server.service
+
+動作確認
+redis-server の起動が確認できたら、 redis-cli コマンドを利用して動作確認します。
+$ redis-cli
+
+また、 INFO コマンドで現在の redis の状態や設定が確認ができます。
+127.0.0.1:6379> INFO
+
+Redis の基本的な設定
+Redis の設定ファイルは、/etc/redis/redis.conf です。
+設定ファイルを変更した際は、 redis-server を restart します。
