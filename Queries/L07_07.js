@@ -74,7 +74,7 @@ WHERE
 // MongoDB - 1
 db.comments.find(
     { _id: '060d2680-daaa-442e-9f71-306828f273ce' },
-    { _id:0, totalLikes: 1, totalDislikes: 1}
+    { totalLikes: 1, totalDislikes: 1}
 )
 
 // MongoDB - 2
