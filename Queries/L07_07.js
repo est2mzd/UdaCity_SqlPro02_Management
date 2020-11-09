@@ -30,7 +30,16 @@ db.comments.insertMany([
 
 
 // Find all comments from users who are verified
+// SQL
+SELECT comments.*
+FROM comments
+JOIN users ON comments.user_id = users._id
+WHERE users.verified;
 
+// MongoDB
+db.comments.find({
+    'author.isVerified': true
+})
 
 
 
