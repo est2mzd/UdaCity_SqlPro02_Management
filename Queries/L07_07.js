@@ -43,33 +43,16 @@ db.comments.find({
 
 
 
+// Find the first 10 comments for a given post id, sorted in reverse chronological order
+// SQL
+SELECT * FROM comments
+WHERE post_id = 555
+ORDER BY posted_at DESC
+LIMIT 10;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// MongoDB
+db.comments.find(
+    { postId: 555}
+).sort(
+    { postedAt: -1} // 1 for ascending
+).limit(10)
