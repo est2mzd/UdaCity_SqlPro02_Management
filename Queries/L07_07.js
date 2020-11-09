@@ -91,9 +91,12 @@ INSERT INTO comment_likes (comment_id, author_id) VALUES
 
 
 // MongoDB
-db.commentLikes.insertOne({
-    commentId: '060d2680-daaa-442e-9f71-306828f273ce',
+db.comment.insertOne({
+    _id: '060d2680-daaa-442e-9f71-306828f273FF',
     userId:55
 })
 
-db.comments
+db.comments.updateOne(
+    {_id: '060d2680-daaa-442e-9f71-306828f273ce'},
+    { $inc: {totalLikes: 1}}
+)
