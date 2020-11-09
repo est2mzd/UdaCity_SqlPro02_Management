@@ -78,9 +78,22 @@ db.comments.find(
 )
 
 // MongoDB - 2
-db.commentLikes.countDocuments({
-    commentId: '060d2680-daaa-442e-9f71-306828f273ce'
+db.comments.countDocuments({
+    'author.userId' : 42
 })
-db.commentLikes.countDocuments({
-    commentId: '060d2680-daaa-442e-9f71-306828f273ce'
+
+
+//----------------------------------------------------------------//
+// Add a new like for a comment
+// SQL
+INSERT INTO comment_likes (comment_id, author_id) VALUES
+    ('060d2680-daaa-442e-9f71-306828f273ce', 55);
+
+
+// MongoDB
+db.commentLikes.insertOne({
+    commentId: '060d2680-daaa-442e-9f71-306828f273ce',
+    userId:55
 })
+
+db.comments
