@@ -1,3 +1,7 @@
 SELECT * 
 FROM bad_comments
-LIMITS 10;
+LIMIT 10;
+
+SELECT *
+FROM bad_posts
+LIMIT 10;
