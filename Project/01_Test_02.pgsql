@@ -7,7 +7,6 @@ SELECT
 FROM bad_comments;
 
 
-
 /* Check Unique Values*/
 SELECT 
     COUNT(DISTINCT id) AS num_id ,  
@@ -20,11 +19,19 @@ SELECT
     COUNT(DISTINCT downvotes) AS num_down
 FROM bad_posts;
 
-SELECT DISTINCT(p.username), COUNT(p.username),  COUNT(c.username)
+SELECT COUNT(p.username)
 FROM bad_comments c, bad_posts p
 WHERE c.username = p.username
-GROUP BY p.username
 
-SELECT DISTINCT p.username, c.username
-FROM bad_comments c, bad_posts p
+
+SELECT DISTINCT username
+FROM bad_comments
 LIMIT 10
+
+SELECT DISTINCT username
+FROM bad_posts
+LIMIT 10
+
+SELECT id, post_id
+FROM bad_comments
+LIMIT 10;
