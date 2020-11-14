@@ -30,4 +30,6 @@ ALTER TABLE topics
 /* Table - 5 */
 ALTER TABLE votes
     ADD CONSTRAINT "const_votes_user_id"
-        FOREIGN KEY (user_id)
+        FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE SET NULL,
+    ADD CONSTRAINT "const_votes_post_id"
+        FOREIGN KEY (post_id) REFERENCES posts (id) ON DELETE CASCADE;
