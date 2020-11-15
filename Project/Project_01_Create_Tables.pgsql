@@ -1,4 +1,4 @@
-/* Table - 1 */
+/* Create Table - 1 */
 CREATE TABLE comments(
     id SERIAL ,
     user_id INTEGER,
@@ -10,7 +10,7 @@ CREATE TABLE comments(
 TRUNCATE TABLE comments RESTART IDENTITY;
 
 
-/* Table -2 */
+/* Create Table -2 */
 CREATE TABLE posts(
     id SERIAL ,
     topic_id INTEGER,
@@ -24,7 +24,7 @@ CREATE TABLE posts(
 );
 TRUNCATE TABLE posts RESTART IDENTITY;
 
-/* Table - 3 */
+/* Create Table - 3 */
 CREATE TABLE users(
     id SERIAL ,
     name VARCHAR(25),
@@ -33,7 +33,7 @@ CREATE TABLE users(
 );
 TRUNCATE TABLE users RESTART IDENTITY;
 
-/* Table - 4 */
+/* Create Table - 4 */
 CREATE TABLE topics(
     id SERIAL ,
     topic VARCHAR(30),
@@ -42,7 +42,7 @@ CREATE TABLE topics(
 );
 TRUNCATE TABLE topics RESTART IDENTITY;
 
-/* Table - 5 */
+/* Create Table - 5 */
 CREATE TABLE votes(
     id SERIAL ,
     user_id INTEGER,

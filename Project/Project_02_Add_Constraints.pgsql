@@ -1,4 +1,4 @@
-/* Table - 1 */
+/* Alter Table - 1 */
 ALTER TABLE comments
     ADD CONSTRAINT "const_comments_user_id" 
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE SET NULL,
@@ -7,7 +7,7 @@ ALTER TABLE comments
         FOREIGN KEY (parent_id) REFERENCES comments (id) ON DELETE CASCADE;
 
 
-/* Table -2 */
+/* Alter Table -2 */
 ALTER TABLE posts
     ADD CONSTRAINT "const_posts_topic_id" 
         FOREIGN KEY (topic_id) REFERENCES topics (id) ON DELETE CASCADE,
@@ -17,17 +17,17 @@ ALTER TABLE posts
     ADD CONSTRAINT "const_posts_url_text"
         CHECK (url IS NOT NULL OR text_content IS NOT NULL);
 
-/* Table - 3 */
+/* Alter Table - 3 */
 ALTER TABLE users
     ADD CONSTRAINT "const_users_name_unique" UNIQUE (name),
     ALTER COLUMN name SET NOT NULL;
 
-/* Table - 4 */
+/* Alter Table - 4 */
 ALTER TABLE topics
     ADD CONSTRAINT "const_topics_name_unique" UNIQUE (topic),
     ALTER COLUMN topic SET NOT NULL;
 
-/* Table - 5 */
+/* Alter Table - 5 */
 ALTER TABLE votes
     ADD CONSTRAINT "const_votes_user_id"
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE SET NULL,

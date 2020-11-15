@@ -7,6 +7,8 @@ INSERT INTO posts (id, topic_id, user_id, title, url, text_content)
     JOIN users u ON bp.username = u.name
     JOIN topics t ON bp.topic = t.topic;
 
+SELECT * FROM posts LIMIT 100;
+
 COMMIT;
 
-SELECT * FROM posts LIMIT 100;
+

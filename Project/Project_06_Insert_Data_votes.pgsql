@@ -19,7 +19,6 @@ INSERT INTO votes (user_id, post_id, vote)
 
 SELECT * FROM votes LIMIT 100;
 
-COMMIT;
 
 SELECT * FROM votes LIMIT 10;
 
@@ -27,3 +26,6 @@ SELECT DISTINCT user_id , COUNT(user_id)
 FROM votes 
 GROUP BY user_id
 ORDER BY 1;
+
+
+COMMIT;
