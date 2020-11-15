@@ -1,0 +1,35 @@
+https://knowledge.udacity.com/questions/287885
+
+I'm struggling to migrate votes to the new schema. 
+I continue to get an error message "Insert on table 'votes' violates foreign key constraint "votes_posts_id_fkey".
+
+Thanks for the further insight into your code, Trevor! It actually looks good from here.
+The error 'insert or update on table "votes" violates foreign key constraint "votes_post_id_fkey"' means that referential integrity is preventing the entry of invalid post_id values into the votes table, due to the presence of a foreign key constraint on the post_id column.
+This suggests that your migration code is indeed trying to insert post_id values that actually do not exist, in other words, there is no or insufficient data in the posts table, and thus its ids are also NULL. When this happens the foreign-key constraint defined on the posts_id columns in the votes table, will prevent entry of null or empty values, because NULL is invalid in the vocabulary of PRIMARY KEY columns.
+This issue is highly likely if table dependencies are not considered. i.e.
+
+Users -> Topics -> Posts -> Votes -> Comments
+
+If topics table does not contain any data or specifically has not received any migration data yet, the posts table will not have data as well even if its migration code is executed. This is because of the JOIN statement, same as INNER JOIN, defined on topic_name from the Topics table.
+
+
+INSERT INTO posts (user_id,topic_id,title,text_content,url)
+SELECT u.id, t.id, LEFT(bp.title,100), bp.text_content, bp.url
+	FROM bad_posts bp
+	JOIN users u
+		ON bp.username=u.username
+	JOIN topics t
+		ON bp.topic=t.topic_name; --# here
+
+
+The JOIN statement includes only data that are a match between the tables involved, which IS REQUIRED. In this case, if topics table is empty, there'll be no match, and so posts will also be empty.
+Therefore, the votes table will access empty posts data because it references the posts table through the posts_id column. The foreign-key constraint checks that every posts_id value entered in the votes table has a corresponding id in the posts table. As far as we know, there isn't any data in the posts table, and so the entry from the migration is invalid. 
+Hence the error : 'insert or update on table "votes" violates foreign key constraint "votes_post_id_fkey"'.
+
+To resolve this, you need to ensure that data is migrated in the right order:
+
+Users -> Topics -> Posts -> Votes -> Comments
+
+So, topics migrated first, then posts, then votes and comments
+Precisely, ensure that you have migrated data into the topics table, before the posts table, and then the votes table. The migration should now behave as expected, and the error should be hopefully eliminated.
+Kindly let me know if this resolves your issue. Always happy to help!
