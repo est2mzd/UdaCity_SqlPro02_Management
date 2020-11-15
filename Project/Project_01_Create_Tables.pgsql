@@ -7,6 +7,8 @@ CREATE TABLE comments(
     parent_id INTEGER,
     CONSTRAINT "const_comments_pk" PRIMARY KEY (id)
 );
+TRUNCATE TABLE comments RESTART IDENTITY;
+
 
 /* Table -2 */
 CREATE TABLE posts(
@@ -20,6 +22,7 @@ CREATE TABLE posts(
     created_at DATE,
     CONSTRAINT "const_posts_pk" PRIMARY KEY (id)
 );
+TRUNCATE TABLE posts RESTART IDENTITY;
 
 /* Table - 3 */
 CREATE TABLE users(
@@ -28,14 +31,16 @@ CREATE TABLE users(
     login_at DATE,
     CONSTRAINT "const_users_pk" PRIMARY KEY (id)
 );
+TRUNCATE TABLE users RESTART IDENTITY;
 
 /* Table - 4 */
 CREATE TABLE topics(
     id SERIAL ,
-    name VARCHAR(30),
+    topic VARCHAR(30),
     description VARCHAR(500),
     CONSTRAINT "const_topic_pk" PRIMARY KEY (id)
 );
+TRUNCATE TABLE topics RESTART IDENTITY;
 
 /* Table - 5 */
 CREATE TABLE votes(
@@ -45,3 +50,4 @@ CREATE TABLE votes(
     vote INTEGER,
     CONSTRAINT "const_votes_pk" PRIMARY KEY (id)
 );
+TRUNCATE TABLE votes RESTART IDENTITY;

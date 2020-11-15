@@ -24,8 +24,8 @@ ALTER TABLE users
 
 /* Table - 4 */
 ALTER TABLE topics
-    ADD CONSTRAINT "const_topics_name_unique" UNIQUE (name),
-    ALTER COLUMN name SET NOT NULL;
+    ADD CONSTRAINT "const_topics_name_unique" UNIQUE (topic),
+    ALTER COLUMN topic SET NOT NULL;
 
 /* Table - 5 */
 ALTER TABLE votes
