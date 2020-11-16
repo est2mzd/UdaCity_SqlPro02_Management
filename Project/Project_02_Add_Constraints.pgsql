@@ -17,6 +17,8 @@ ALTER TABLE posts
     ADD CONSTRAINT "const_posts_url_text"
         CHECK (url IS NOT NULL OR text_content IS NOT NULL);
 
+CREATE INDEX "index_posts_url" ON posts (url);  /* added after 1st submission*/
+
 /* Alter Table - 3 */
 ALTER TABLE users
     ADD CONSTRAINT "const_users_name_unique" UNIQUE (name),
@@ -32,4 +34,7 @@ ALTER TABLE votes
     ADD CONSTRAINT "const_votes_user_id"
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE SET NULL,
     ADD CONSTRAINT "const_votes_post_id"
-        FOREIGN KEY (post_id) REFERENCES posts (id) ON DELETE CASCADE;
+        FOREIGN KEY (post_id) REFERENCES posts (id) ON DELETE CASCADE,
+    ADD CONSTRAINT "const_votes_user_post_unique" UNIQUE(user_id, post_id);   /* added after 1st submission*/ 
+    
+CREATE INDEX "index_votes_vote" ON votes (vote);  /* added after 1st submission*/ 

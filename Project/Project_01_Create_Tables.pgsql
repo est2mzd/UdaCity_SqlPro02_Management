@@ -5,6 +5,7 @@ CREATE TABLE comments(
     post_id INTEGER,
     text_content TEXT,
     parent_id INTEGER,
+    created_at DATE,       /* added after 1st submission*/
     CONSTRAINT "const_comments_pk" PRIMARY KEY (id)
 );
 TRUNCATE TABLE comments RESTART IDENTITY;
